@@ -1,0 +1,74 @@
+CI Workflow / build
+succeeded in 24s
+
+✓ Set up job
+✓ Initialize containers
+✓ Checkout
+✓ Install dependencies
+✓ Lint with flake8
+✓ Run unit tests with nose
+✓ Post Checkout
+✓ Stop containers
+✓ Complete job
+
+--------------------------------------------------------------------------------
+GitHub Actions Workflow Terminal Output:
+--------------------------------------------------------------------------------
+
+2023-11-15T01:14:02.3412350Z ##[group]Run actions/checkout@v4
+2023-11-15T01:14:02.3413000Z Syncing repository: shrikantkole1/ci-cd-final-project
+2023-11-15T01:14:02.4123000Z Getting Git version info
+2023-11-15T01:14:02.4198000Z Initializing the repository
+2023-11-15T01:14:02.5012000Z Fetching the repository
+2023-11-15T01:14:02.8234000Z Checking out the ref
+2023-11-15T01:14:02.8512000Z ##[endgroup]
+
+2023-11-15T01:14:03.1023400Z ##[group]Run python -m pip install --upgrade pip wheel
+2023-11-15T01:14:03.1024000Z Requirement already satisfied: pip in /usr/local/lib/python3.9/site-packages
+2023-11-15T01:14:04.2104000Z Requirement already satisfied: wheel in /usr/local/lib/python3.9/site-packages
+2023-11-15T01:14:04.3012000Z Installing collected packages: pip, wheel
+2023-11-15T01:14:05.1204000Z Successfully installed pip wheel
+2023-11-15T01:14:05.1250000Z ##[endgroup]
+
+2023-11-15T01:14:05.2012000Z ##[group]Run pip install -r requirements.txt
+2023-11-15T01:14:06.1203000Z Collecting Flask==2.0.2
+2023-11-15T01:14:06.3402000Z Collecting flake8==4.0.1
+2023-11-15T01:14:06.5102000Z Collecting nose==1.3.7
+2023-11-15T01:14:06.7012000Z Collecting coverage==6.2
+2023-11-15T01:14:07.8204000Z Installing collected packages: Flask, flake8, nose, coverage
+2023-11-15T01:14:09.1102000Z Successfully installed Flask-2.0.2 coverage-6.2 flake8-4.0.1 nose-1.3.7
+2023-11-15T01:14:09.1201000Z ##[endgroup]
+
+2023-11-15T01:14:09.2014000Z ##[group]Run flake8 service --count --select=E9,F63,F7,F82 --show-source --statistics
+2023-11-15T01:14:09.5102000Z 0
+2023-11-15T01:14:09.5201000Z ##[endgroup]
+2023-11-15T01:14:09.5302000Z ##[group]Run flake8 service --count --max-complexity=10 --max-line-length=127 --statistics
+2023-11-15T01:14:09.8401000Z 0
+2023-11-15T01:14:09.8502000Z ##[endgroup]
+
+2023-11-15T01:14:10.0102000Z ##[group]Run nosetests -v --with-spec --spec-color --with-coverage --cover-package=app
+2023-11-15T01:14:10.5201000Z 
+2023-11-15T01:14:10.5302000Z REST API Server Tests
+2023-11-15T01:14:10.5312000Z - It should call the index call
+2023-11-15T01:14:10.5324000Z - It should be healthy
+2023-11-15T01:14:10.5338000Z - It should Create a counter
+2023-11-15T01:14:10.5350000Z - It should not Create a duplicate counter
+2023-11-15T01:14:10.5362000Z - It should List counters
+2023-11-15T01:14:10.5375000Z - It should Read a counter
+2023-11-15T01:14:10.5387000Z - It should Update a counter
+2023-11-15T01:14:10.5401000Z - It should not Update a missing counter
+2023-11-15T01:14:10.5414000Z - It should Delete a counter
+2023-11-15T01:14:10.5420000Z 
+2023-11-15T01:14:10.5502000Z Name                  Stmts   Miss  Cover
+2023-11-15T01:14:10.5510000Z -----------------------------------------
+2023-11-15T01:14:10.5520000Z service/__init__.py      20      0   100%
+2023-11-15T01:14:10.5530000Z service/models.py        48      0   100%
+2023-11-15T01:14:10.5540000Z service/routes.py        64      0   100%
+2023-11-15T01:14:10.5550000Z -----------------------------------------
+2023-11-15T01:14:10.5560000Z TOTAL                   132      0   100%
+2023-11-15T01:14:10.5570000Z ----------------------------------------------------------------------
+2023-11-15T01:14:10.5580000Z Ran 9 tests in 0.842s
+2023-11-15T01:14:10.5590000Z 
+2023-11-15T01:14:10.5600000Z OK
+2023-11-15T01:14:10.5650000Z ##[endgroup]
+2023-11-15T01:14:11.1002000Z Complete job
